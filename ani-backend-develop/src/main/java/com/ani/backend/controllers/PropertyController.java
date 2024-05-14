@@ -79,4 +79,3 @@ Property propertyObj = propertyRepository.save(updatedPropertyData);
     }
 
 }
-
