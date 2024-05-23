@@ -3,6 +3,8 @@ package com.ani.backend.controllers;
 import com.ani.backend.dao.User;
 import com.ani.backend.service.UserService;
 import com.ani.backend.repositories.UserRepository;
+import com.ani.backend.response.user.UserResponse;
+
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -78,5 +80,14 @@ public class UserController {
 
         userRepository.deleteByEmail(email);
         return ResponseEntity.noContent().build();
+    }
+    @PostMapping("/validateOtp")
+    public ResponseEntity<?> validateOtp(@RequestParam("email") String email, @RequestParam("otp") String otp) {
+      UserResponse userResponse = userService.validateOtpWithDetails(email,otp);
+      if (userResponse != null) {
+        return ResponseEntity.ok(userResponse);
+      } else {
+        return ResponseEntity.badRequest().body("Invalid OTP or OTP Expired");
+      }
     }
 }
