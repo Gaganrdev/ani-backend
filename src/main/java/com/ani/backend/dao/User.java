@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.List;
 
@@ -36,6 +37,12 @@ public class User {
     private String address;
     @Column(name="city")
     private String city;
+    @Column(name="otp")
+    private String otp;
+    @Column(name= "otp_expiry")
+    private LocalDateTime otpExpiry;
+    @Column(name="state")
+    private String state;
     @Column(name="user_creation_date")
     private Date userCreationDate;
     @Column(name="user_status")
