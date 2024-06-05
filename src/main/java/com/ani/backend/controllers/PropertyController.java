@@ -56,10 +56,10 @@ public class PropertyController {
     }
     @GetMapping("/{id}")
     public ResponseEntity<PropertyResponse> getPropertyById(@PathVariable Integer id) {
-        PropertyResponse propertyDTO = propertyService.getPropertyDetailsById(id);
-        if (propertyDTO == null) {
+        PropertyResponse propertyResponse = propertyService.getPropertyDetailsById(id);
+        if (propertyResponse == null) {
             return ResponseEntity.notFound().build();
         }
-        return ResponseEntity.ok(propertyDTO);
+        return ResponseEntity.ok(propertyResponse);
     }
 }
