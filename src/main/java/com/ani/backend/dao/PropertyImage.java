@@ -27,8 +27,8 @@ public class PropertyImage {
     @Column(name = "image_type")
     private String imageType;
 
-    @Column(name = "order")
-    private String order;
+    @Column(name = "image_order")
+    private String imageOrder;
 
     @Column(name = "category")
     private String category;
