@@ -83,7 +83,7 @@ public class UserController {
     }
     @PostMapping("/validateOtp")
     public ResponseEntity<?> validateOtp(@RequestParam("email") String email, @RequestParam("otp") String otp) {
-      UserResponse userResponse = userService.validateOtpWithDetails(email,otp);
+      UserResponse userResponse = userService.validateOtpAndCreateResponse(email,otp);
       if (userResponse != null) {
         return ResponseEntity.ok(userResponse);
       } else {
